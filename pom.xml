@@ -24,5 +24,6 @@
     </build>
     <modules>
         <module>hdfs-study</module>
+        <module>MapReduce-study</module>
     </modules>
 </project>
