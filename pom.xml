@@ -63,5 +63,6 @@
         <module>concurrent-study</module>
         <module>flink</module>
         <module>flink-hive</module>
+        <module>flink-scala</module>
     </modules>
 </project>
