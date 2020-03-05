@@ -63,5 +63,7 @@
         <module>concurrent-study</module>
         <module>flink-hive</module>
         <module>flink-scala</module>
+        <module>google-guava</module>
+        <module>Java-Base</module>
     </modules>
 </project>

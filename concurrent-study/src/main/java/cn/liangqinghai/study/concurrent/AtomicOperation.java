@@ -5,6 +5,8 @@ import lombok.Data;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * @author Mr.Liang
@@ -14,30 +16,35 @@ public class AtomicOperation {
 
     public static void main(String[] args) {
 
-        Counter counter = new Counter();
+//        Counter counter = new Counter();
+//
+//        List<Thread> threads = new ArrayList<>();
+//
+//        for (int i = 0; i < 100000; i++) {
+//            threads.add(new Thread(() -> {
+//                counter.unsafeCount();
+//                counter.safeCount();
+//            }));
+//        }
+//
+//        threads.forEach(Thread::start);
+//
+//        for (Thread thread : threads) {
+//            try {
+//                thread.join();
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//
+//        System.out.println(counter.counterWithoutAtomic);
+//
+//        System.out.println(counter.counterWithAtomic.get());
 
-        List<Thread> threads = new ArrayList<>();
+        AtomicInteger i = new AtomicInteger(1);
+        List<Integer> integers = Stream.generate(i::getAndIncrement).limit(20).collect(Collectors.toList());
 
-        for (int i = 0; i < 100000; i++) {
-            threads.add(new Thread(() -> {
-                counter.unsafeCount();
-                counter.safeCount();
-            }));
-        }
-
-        threads.forEach(Thread::start);
-
-        for (Thread thread : threads) {
-            try {
-                thread.join();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-
-        System.out.println(counter.counterWithoutAtomic);
-
-        System.out.println(counter.counterWithAtomic.get());
+        integers.stream().limit(80).forEach(System.out::println);
 
     }
 
