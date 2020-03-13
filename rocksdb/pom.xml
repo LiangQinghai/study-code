@@ -9,19 +9,20 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>cn.liangqinghai.study.java.base</groupId>
-    <artifactId>Java-Base</artifactId>
+    <groupId>cn.liangqinghai.study.rocksdb</groupId>
+    <artifactId>rocksdb</artifactId>
+
 
     <dependencies>
 
-        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
         <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>2.10.3</version>
+            <groupId>org.rocksdb</groupId>
+            <artifactId>rocksdbjni</artifactId>
+            <version>6.6.4</version>
         </dependency>
 
 
     </dependencies>
+
 
 </project>

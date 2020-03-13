@@ -26,6 +26,13 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/cn.hutool/hutool-all -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.2.1</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -65,5 +72,6 @@
         <module>flink-scala</module>
         <module>google-guava</module>
         <module>Java-Base</module>
+        <module>rocksdb</module>
     </modules>
 </project>
