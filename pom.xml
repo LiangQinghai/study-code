@@ -73,5 +73,6 @@
         <module>google-guava</module>
         <module>Java-Base</module>
         <module>rocksdb</module>
+        <module>kafka</module>
     </modules>
 </project>
