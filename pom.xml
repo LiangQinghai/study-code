@@ -74,5 +74,6 @@
         <module>Java-Base</module>
         <module>rocksdb</module>
         <module>kafka</module>
+        <module>netty</module>
     </modules>
 </project>
