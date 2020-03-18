@@ -19,7 +19,7 @@ import java.util.Map;
  */
 public class Simple {
 
-    private static final String dbPath = "/Users/weiwei/Documents/rocksdb/java/data/";
+    private static final String dbPath = "D:\\Coding\\idea\\study-code\\rocksdb\\src\\main\\resources\\rocksdb";
 
     static {
         RocksDB.loadLibrary();
