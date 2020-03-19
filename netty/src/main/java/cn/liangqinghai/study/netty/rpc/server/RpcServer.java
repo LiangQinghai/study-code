@@ -1,6 +1,7 @@
 package cn.liangqinghai.study.netty.rpc.server;
 
 import cn.hutool.json.JSONUtil;
+import cn.liangqinghai.study.netty.rpc.bean.Constants;
 import cn.liangqinghai.study.netty.rpc.bean.InvokeMessage;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelHandlerContext;
@@ -90,7 +91,7 @@ public class RpcServer {
                     @Override
                     protected void initChannel(SocketChannel ch) throws Exception {
                         ch.pipeline().addLast(new ObjectEncoder())
-                                .addLast(new ObjectDecoder(ClassResolvers.cacheDisabled(null)))
+                                .addLast(new ObjectDecoder(1024 * 64, ClassResolvers.cacheDisabled(null)))
                                 .addLast(new ChannelInboundHandlerAdapter() {
 
                                     @Override
@@ -117,7 +118,7 @@ public class RpcServer {
                                 });
                     }
                 })
-                .bind(new InetSocketAddress("127.0.0.1", 8888))
+                .bind(new InetSocketAddress(Constants.IP, Constants.PORT))
                 .sync()
                 .channel()
                 .closeFuture()

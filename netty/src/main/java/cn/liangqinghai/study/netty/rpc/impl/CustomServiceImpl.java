@@ -14,4 +14,12 @@ public class CustomServiceImpl implements ICustomService {
 
         return "Handle_prefix: " + name;
     }
+
+    @Override
+    public String apply() {
+
+        System.out.println("apply call.");
+
+        return "Some message";
+    }
 }

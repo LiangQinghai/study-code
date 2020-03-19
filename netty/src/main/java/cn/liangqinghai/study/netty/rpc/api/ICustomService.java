@@ -14,4 +14,11 @@ public interface ICustomService {
      */
     String getName(String name);
 
+    /**
+     * apply
+     *
+     * @return
+     */
+    String apply();
+
 }
