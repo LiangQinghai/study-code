@@ -98,5 +98,6 @@
         <module>rocksdb</module>
         <module>kafka</module>
         <module>netty</module>
+        <module>scala-study</module>
     </modules>
 </project>
