@@ -130,7 +130,7 @@ object TestOne {
 
   def getList(strList: List[String]): List[String] = {
     var str = ""
-    return for (str <- strList; if str.contains("o")) yield str
+    for (str <- strList; if str.contains("o")) yield str
   }
 
   def time() = {

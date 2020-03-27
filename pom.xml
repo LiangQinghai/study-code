@@ -99,5 +99,8 @@
         <module>kafka</module>
         <module>netty</module>
         <module>scala-study</module>
+        <module>jni-study</module>
+        <module>idempotent-study</module>
+        <module>flink-stream</module>
     </modules>
 </project>
