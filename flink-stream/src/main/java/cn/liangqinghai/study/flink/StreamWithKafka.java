@@ -2,23 +2,25 @@ package cn.liangqinghai.study.flink;
 
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
-import lombok.Builder;
-import lombok.Data;
-import org.apache.flink.api.common.serialization.DeserializationSchema;
+import org.apache.flink.api.common.functions.FlatMapFunction;
+import org.apache.flink.api.common.functions.MapFunction;
 import org.apache.flink.api.common.serialization.SimpleStringSchema;
 import org.apache.flink.api.common.typeinfo.TypeInformation;
+import org.apache.flink.api.common.typeinfo.Types;
+import org.apache.flink.api.java.tuple.Tuple2;
+import org.apache.flink.api.java.typeutils.RowTypeInfo;
 import org.apache.flink.configuration.Configuration;
+import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer;
 import org.apache.flink.table.api.EnvironmentSettings;
+import org.apache.flink.table.api.Table;
 import org.apache.flink.table.api.java.StreamTableEnvironment;
 import org.apache.flink.types.Row;
+import org.apache.flink.util.Collector;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.Serializable;
-import java.nio.charset.StandardCharsets;
-import java.util.List;
 import java.util.Properties;
 
 /**
@@ -42,10 +44,12 @@ public class StreamWithKafka {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         Configuration conf = new Configuration();
         StreamExecutionEnvironment env = StreamExecutionEnvironment.createLocalEnvironmentWithWebUI(conf);
+
+//        StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 
         EnvironmentSettings settings = EnvironmentSettings.newInstance().inStreamingMode().useBlinkPlanner().build();
 
@@ -53,41 +57,45 @@ public class StreamWithKafka {
 
         FlinkKafkaConsumer<String> consumer = new FlinkKafkaConsumer<>(kafkaConfig.getProperty("topic"), new SimpleStringSchema(), kafkaConfig);
 
-        tableEnv.fromDataStream(env.addSource(consumer), "id, idnn");
 
-    }
+        DataStream<Row> outputStreamOperator = env.addSource(consumer).flatMap(new FlatMapFunction<String, JSONObject>() {
 
-    @Data
-    @Builder
-    public static class EntityBody implements Serializable {
+            private static final long serialVersionUID = 6830806646980603159L;
 
-        private static final long serialVersionUID = 6620750767920100034L;
+            @Override
+            public void flatMap(String value, Collector<JSONObject> out) throws Exception {
+                out.collect(JSONUtil.parseObj(value));
+            }
+        })
+                .map((MapFunction<JSONObject, Row>) (json) -> {
+                    Object statDate = json.get("STAT_DATE");
+                    Object appId = json.get("APP_ID");
+                    Object tphone = json.get("TPHONE");
 
-        private List<String> fieldNames;
+                    return Row.of(statDate, appId, tphone);
+                })
+                .returns(new RowTypeInfo(
+                        new TypeInformation[]{Types.STRING, Types.STRING, Types.STRING},
+                        new String[]{"STAT_DATE", "APP_ID", "TPHONE"}));
 
-    }
+        tableEnv.createTemporaryView("TMP_1", outputStreamOperator, "STAT_DATE, APP_ID, TPHONE");
 
-    public static class JsonObjectSchema implements DeserializationSchema<Row> {
+        Table table = tableEnv.sqlQuery("\n" +
+                "SELECT\n" +
+                "  STAT_DATE,\n" +
+                "  APP_ID,\n" +
+                "  COUNT(DISTINCT TPHONE) AS NEW_MEMBER\n" +
+                "FROM\n" +
+                "  `TMP_1`\n" +
+                "GROUP BY STAT_DATE,\n" +
+                "  APP_ID");
 
-        private static final long serialVersionUID = 6722325048403322950L;
+        DataStream<Tuple2<Boolean, Row>> rowDataStream = tableEnv.toRetractStream(table, Row.class);
 
-        @Override
-        public Row deserialize(byte[] message) throws IOException {
+        rowDataStream.print().setParallelism(1);
 
-            JSONObject jsonObject = JSONUtil.parseObj(new String(message, StandardCharsets.UTF_8));
+        env.execute("lqh");
 
-            return null;
-        }
-
-        @Override
-        public boolean isEndOfStream(Row nextElement) {
-            return false;
-        }
-
-        @Override
-        public TypeInformation<Row> getProducedType() {
-            return null;
-        }
     }
 
 }
