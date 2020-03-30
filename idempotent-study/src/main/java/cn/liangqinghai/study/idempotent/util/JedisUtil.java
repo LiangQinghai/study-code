@@ -15,7 +15,6 @@ import redis.clients.jedis.JedisPool;
  * @date 3/26/2020 10:19 AM
  */
 @Component
-@Slf4j
 public class JedisUtil {
 
     @Autowired
@@ -43,9 +42,10 @@ public class JedisUtil {
 
             jedis = getJedis();
             jedis.set(key, value);
+            jedis.expire(key, 2 * 60);
 
         } catch (Exception e) {
-            log.error(e.getMessage(), e);
+            e.printStackTrace();
         } finally {
 
             if (jedis != null) {
@@ -78,7 +78,6 @@ public class JedisUtil {
 
         } catch (Exception e) {
             e.printStackTrace();
-            log.error(e.getMessage(), e);
         } finally {
             if (jedis != null) {
                 jedis.close();
