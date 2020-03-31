@@ -105,5 +105,6 @@
         <module>flink-stream</module>
         <module>excel</module>
         <module>rest-jersey-springboot-frame</module>
+        <module>logback-common</module>
     </modules>
 </project>
