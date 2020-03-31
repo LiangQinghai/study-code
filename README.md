@@ -19,3 +19,8 @@
 - [ververica](https://ververica.cn/)
 - [并发编程网](http://ifeve.com/)
 - [lxw的大数据田地](http://lxw1234.com/)
+- [SpringBoot Tutorial](https://www.tutorialspoint.com/spring_boot/index.htm)
+- [JavaTech](https://www.tutorialspoint.com/java_technology_tutorials.htm)
+    > 诸多Java教程，NIO、GUAVA、Spring等
+- [Big Data & Analytics Tutorials](https://www.tutorialspoint.com/big_data_tutorials.htm)
+    > flume、kafka、pig、spark等
