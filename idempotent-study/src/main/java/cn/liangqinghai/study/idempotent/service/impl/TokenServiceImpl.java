@@ -49,4 +49,9 @@ public class TokenServiceImpl implements ITokenService {
 
         return true;
     }
+
+    @Override
+    public void removeToken(String token) {
+        jedisUtil.removeKey(token);
+    }
 }

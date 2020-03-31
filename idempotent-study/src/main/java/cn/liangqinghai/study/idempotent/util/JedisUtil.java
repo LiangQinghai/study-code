@@ -87,4 +87,21 @@ public class JedisUtil {
         return null;
     }
 
+    /**
+     * 删除key
+     *
+     * @param key
+     */
+    public void removeKey(String key) {
+
+        Jedis jedis = getJedis();
+
+        if (StringUtils.isEmpty(key)) {
+            return;
+        }
+
+        jedis.del(key);
+
+    }
+
 }

@@ -26,4 +26,11 @@ public interface ITokenService {
      */
     boolean checkToken(HttpServletRequest request);
 
+    /**
+     * 移除token
+     *
+     * @param token
+     */
+    void removeToken(String token);
+
 }

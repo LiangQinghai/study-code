@@ -36,7 +36,13 @@ public class IdempotentInterceptor implements HandlerInterceptor {
         Idempotent idempotent = method.getMethod().getAnnotation(Idempotent.class);
 
         if (idempotent != null) {
-            return tokenService.checkToken(request);
+            boolean checkToken = tokenService.checkToken(request);
+
+            if (!checkToken) {
+                throw new RuntimeException("hhhhhh");
+            }
+
+            return checkToken;
         }
 
 
