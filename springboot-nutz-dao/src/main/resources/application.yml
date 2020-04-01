@@ -1,0 +1,16 @@
+server:
+  port: 8889
+
+nutz:
+  dao:
+    runtime:
+      create: true
+      migration: true
+      basepackage:
+        - cn.liangqinghai.study.nutz.domain
+spring:
+  datasource:
+    username: mysqluser
+    password: mysqluser
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://172.26.59.35:3306/DW_STREAMING_DATAIN_TEST?characterEncoding=utf-8&cacheServerConfiguration=true&useLocalSessionState=true

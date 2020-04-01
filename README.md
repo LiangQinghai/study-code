@@ -24,3 +24,5 @@
     > 诸多Java教程，NIO、GUAVA、Spring等
 - [Big Data & Analytics Tutorials](https://www.tutorialspoint.com/big_data_tutorials.htm)
     > flume、kafka、pig、spark等
+- [HowToDoInJava](https://howtodoinjava.com/)
+    > SpringFramework、JavaCore、JMS、RxJava、etc
