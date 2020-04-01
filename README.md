@@ -4,6 +4,7 @@
 - [Hive](https://cwiki.apache.org/confluence/display/Hive/Home)
 - [Flink](https://ci.apache.org/projects/flink/flink-docs-master/)
 - [rocksdb](https://rocksdb.org.cn/doc/RocksJava-Basics.html)
+- [SpringBoot](https://docs.spring.io/spring-boot/docs/2.2.6.RELEASE/reference/htmlsingle/)
 
 **study blog**
 - [时间与精神的小屋](https://www.whitewood.me/)
