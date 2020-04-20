@@ -123,8 +123,8 @@ object TestOne {
       }
     }
 
-    val myMap2 = scala.collection.mutable.Map()
-    myMap2("Hello") = "Hello"
+//    val myMap2 = scala.collection.mutable.Map()
+//    myMap2("Hello") = "Hello"
 
   }
 

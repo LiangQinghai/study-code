@@ -74,6 +74,7 @@ public class SwaggerConfig {
     }
 
     private ApiInfo apiInfo() {
+        return null;
     }
 
 }

@@ -39,7 +39,7 @@ public class JerseyConfig extends ResourceConfig {
 
         this.register(beanDefinitions.stream()
                 .map(beanDefinition -> ClassUtils.resolveClassName(Objects.requireNonNull(beanDefinition.getBeanClassName()), this.getClassLoader()))
-                .collect(Collectors.toSet()))
+                .collect(Collectors.toSet()));
 
     }
 

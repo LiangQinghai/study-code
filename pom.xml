@@ -26,7 +26,7 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.12</version>
-            <scope>provided</scope>
+            <scope>compile</scope>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/cn.hutool/hutool-all -->
@@ -149,5 +149,6 @@
         <module>reactor-study</module>
         <module>springboot-web-flux</module>
         <module>springboot-jwt</module>
+        <module>grpc-study</module>
     </modules>
 </project>
