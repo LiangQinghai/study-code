@@ -1,32 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration>
-    <property name="LOG_HOME" value="c:/log" />
+<!--
+configuration根节点：
+    scan: true->配置文件发生改变会被重新加载，默认true
+    scanPeriod: 扫描检测配置文件变化时间间隔，默认单位毫秒，默认时间间隔1分钟
+    debug: true->打印logback内部debug日志，默认false
+-->
+<configuration scan="true" scanPeriod="60 seconds">
 
-    <!-- 控制台输出 -->
+    <!--
+        contextName：子节点，上下文名称，默认default
+    -->
+    <contextName>LogbackApplication</contextName>
+
+    <!--
+        property: 子节点，定义变量值，通过${}进行使用
+            name: 变量名称
+            value: 变量值
+    -->
+    <property name="LOG_HOME" value="/data/log" />
+
+    <!--
+        timestamp: 子节点，获取时间字符串
+            key: 标识名称
+            value: 设置将当前时间（解析配置文件的时间）转换为字符串的模式，遵循java.txt.SimpleDateFormat的格式
+    -->
+    <timestamp key="bySecond" value="yyyy-MM-dd'T'HH:mm:ss:SSS"/>
+
+    <!--
+        appender: 写日志组件
+            name: 指定组件名称
+            class: appender全路径名称
+    -->
+    <!--
+        ch.qos.logback.core.ConsoleAppender: 控制台日志
+        ch.qos.logback.core.FileAppender: 文件日志
+        ch.qos.logback.core.rolling.RollingFileAppender：滚动日志（防止日志过大）
+    -->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-<!--        <Encoding>UTF-8</Encoding>-->
+        <!--
+            encoder: 日志格式化
+        -->
+        <encoder>
+            <pattern>%d{yyyy-MM-dd'T'HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+        </encoder>
+<!--        <layout class="ch.qos.logback.classic.PatternLayout">-->
+<!--            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>-->
+<!--        </layout>-->
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <!--
+            file: 输出文件名
+        -->
+        <file>${LOG_HOME}/app.log</file>
+        <!--
+            append: 日志追加形式
+        -->
+        <append>true</append>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+        </encoder>
+<!--        <layout class="ch.qos.logback.classic.PatternLayout">-->
+<!--            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>-->
+<!--        </layout>-->
+    </appender>
+
+    <appender name="ROLLING_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${LOG_HOME}/myApp.log.%d{yyyy-MM-dd}.log</FileNamePattern>
+            <MaxHistory>30</MaxHistory>
+        </rollingPolicy>
         <layout class="ch.qos.logback.classic.PatternLayout">
-            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n
-            </pattern>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
         </layout>
     </appender>
 
-    <!-- 按照每天生成日志文件 -->
-<!--    <appender name="FILE"-->
-<!--              class="ch.qos.logback.core.rolling.RollingFileAppender">-->
-<!--        <Encoding>UTF-8</Encoding>-->
-<!--        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
-<!--            <FileNamePattern>${LOG_HOME}/myApp.log.%d{yyyy-MM-dd}.log</FileNamePattern>-->
-<!--            <MaxHistory>30</MaxHistory>-->
-<!--        </rollingPolicy>-->
-<!--        <layout class="ch.qos.logback.classic.PatternLayout">-->
-<!--            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n-->
-<!--            </pattern>-->
-<!--        </layout>-->
-<!--    </appender>-->
+    <!--
+        logger: 配置日志输出，可以指定包/具体类的日志级别
+            name：包名/全路径类名
+            level：日志级别
+    -->
+    <logger name="cn.liangqinghai.study.log" level="TRACE">
+        <appender-ref ref="FILE"/>
+    </logger>
 
+    <!--
+        root: logger上级，所有日志输出级别和输出appender
+    -->
     <root level="INFO">
         <appender-ref ref="STDOUT" />
-<!--        <appender-ref ref="FILE" />-->
     </root>
+
+
 </configuration>
