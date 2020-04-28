@@ -6,6 +6,7 @@ import com.google.common.cache.RemovalCause;
 import com.google.common.cache.RemovalListener;
 
 import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
@@ -49,6 +50,11 @@ public class CacheStudy {
                 .weakKeys()
                 .build();
 
+        ScheduledThreadPoolExecutor scheduledThreadPoolExecutor = new ScheduledThreadPoolExecutor(2);
+        scheduledThreadPoolExecutor.scheduleAtFixedRate(() -> {
+            cache.cleanUp();
+            System.out.println("cleanUp");
+        }, 3 * 1000, 5 * 1000, TimeUnit.MILLISECONDS);
 
         int i = 1;
 
@@ -59,9 +65,10 @@ public class CacheStudy {
 
             i ++;
 
-            if (i % 15 == 0) {
-                cache.invalidateAll();
-            }
+//            if (i % 15 == 0) {
+////                cache.invalidateAll();
+//                cache.cleanUp();
+//            }
 
             Thread.sleep(100);
 
