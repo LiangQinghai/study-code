@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/lqh?autoReconnect=true&characterEncoding=utf-8
+    username: root
+    password:
+    driver-class-name: com.mysql.jdbc.Driver
+    druid:
+      initial-size: 10
+      max-active: 100
+      min-idle: 10
+      max-wait: 20
+      pool-prepared-statements: true
+      # 监控配置
+      web-stat-filter:
+        enabled: true

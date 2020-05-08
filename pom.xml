@@ -150,5 +150,6 @@
         <module>springboot-web-flux</module>
         <module>springboot-jwt</module>
         <module>grpc-study</module>
+        <module>springboot-druid</module>
     </modules>
 </project>
