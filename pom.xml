@@ -151,5 +151,7 @@
         <module>springboot-jwt</module>
         <module>grpc-study</module>
         <module>springboot-druid</module>
+        <module>springboot-mybatis</module>
+        <module>springboot-mybatisplus-crown</module>
     </modules>
 </project>

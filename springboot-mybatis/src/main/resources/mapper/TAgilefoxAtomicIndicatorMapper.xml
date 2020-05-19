@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.liangqinghai.study.mybatis.mapper.TAgilefoxAtomicIndicatorMapper">
+
+    <!-- 开启二级缓存 -->
+    <cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.liangqinghai.study.mybatis.entity.TAgilefoxAtomicIndicator">
+        <id column="ID" property="id" />
+        <result column="DATA_DOMAIN_ID" property="dataDomainId" />
+        <result column="EN_NAME" property="enName" />
+        <result column="NAME" property="name" />
+        <result column="REMARK" property="remark" />
+        <result column="DATA_TYPE" property="dataType" />
+        <result column="STATISTICCYCLE_ID" property="statisticcycleId" />
+        <result column="FORMAT_TYPE" property="formatType" />
+        <result column="ADDITIVE" property="additive" />
+        <result column="FORMULA" property="formula" />
+        <result column="STATUS" property="status" />
+        <result column="CREATE_USER" property="createUser" />
+        <result column="CREATE_TIME" property="createTime" />
+        <result column="LAST_MODIFIED_USER" property="lastModifiedUser" />
+        <result column="LAST_MODIFIED_TIME" property="lastModifiedTime" />
+        <result column="APP_ID" property="appId" />
+        <result column="BPM_ID" property="bpmId" />
+        <result column="AREA_ID" property="areaId" />
+        <result column="INDUSTRY_ID" property="industryId" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        ID, DATA_DOMAIN_ID, EN_NAME, NAME, REMARK, DATA_TYPE, STATISTICCYCLE_ID, FORMAT_TYPE, ADDITIVE, FORMULA, STATUS, CREATE_USER, CREATE_TIME, LAST_MODIFIED_USER, LAST_MODIFIED_TIME, APP_ID, BPM_ID, AREA_ID, INDUSTRY_ID
+    </sql>
+
+</mapper>
