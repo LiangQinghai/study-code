@@ -57,3 +57,31 @@ spring:
     restart:
       enabled: true
 
+mybatis-plus:
+  configuration:
+    cache-enabled: true
+    default-executor-type: reuse
+    jdbc-type-for-null: null
+    lazy-loading-enabled: true
+    local-cache-scope: session
+    map-underscore-to-camel-case: true
+    default-enum-type-handler: org.apache.ibatis.type.EnumTypeHandler
+  mapper-locations: classpath:mapper/**/*Mapper.xml
+  global-config:
+    banner: true
+    db-config:
+      id-type: auto
+      table-prefix: t_
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      insert-strategy: not_null
+      update-strategy: not_null
+      select-strategy: not_empty
+    super-mapper-class: com.baomidou.mybatisplus.core.mapper.BaseMapper
+  type-enums-package: cn.liangqinghai.study.mbp.enums
+  type-aliases-package: cn.liangqinghai.study.mbp.*.*.models
+  type-handlers-package: cn.liangqinghai.study.mbp.typehandler
+
+mbp:
+  demo:
+    enable: false
