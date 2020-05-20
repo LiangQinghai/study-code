@@ -17,4 +17,19 @@ public class MbpProperties {
     @NestedConfigurationProperty
     private Demo demo;
 
+    @NestedConfigurationProperty
+    private Path path;
+
+    @NestedConfigurationProperty
+    private Password password;
+
+    @NestedConfigurationProperty
+    private Generator generator;
+
+    @NestedConfigurationProperty
+    private Xss xss;
+
+    @NestedConfigurationProperty
+    private Email email;
+
 }

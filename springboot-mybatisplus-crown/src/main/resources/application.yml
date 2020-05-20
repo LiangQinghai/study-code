@@ -83,5 +83,45 @@ mybatis-plus:
   type-handlers-package: cn.liangqinghai.study.mbp.typehandler
 
 mbp:
+  email:
+    enable: false
+    send: hello@live.com
+  generator:
+    author: Mr.Liang
+    package-path: cn.liangqinghai.study.mbp.gen
   demo:
     enable: false
+  address:
+    enable: true
+  password:
+    maxRetryCount: 5
+  path:
+    file-path: /data/filepath
+    resource-handler: /data/profile/**
+    resource-path: /data/profile/
+    prefix:
+      avatar: avatar/
+      download: download/
+      upload: upload/
+  xss:
+    enable: true
+    exclude-fields:
+      - noticeContent
+    exclude-urls:
+      - /system/notice/*
+
+shiro:
+  index-url: /index
+  login-url: /login
+  unauth-url: /unauth
+  session:
+    db-sync-period: 1
+    expire-time: 30
+    validation-interval: 10
+    max-session: 1
+    kickout-after: false
+  remember-me-cookie:
+    domain:
+    path: /
+    http-only: true
+    max-age: 1

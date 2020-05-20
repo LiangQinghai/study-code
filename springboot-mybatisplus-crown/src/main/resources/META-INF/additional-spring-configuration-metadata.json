@@ -1,8 +1,0 @@
-{
-  "properties": [
-    {
-      "name": "mbp.demo.enable",
-      "type": "java.lang.Boolean",
-      "description": "Description for mbp.demo.enable."
-  }
-]}
