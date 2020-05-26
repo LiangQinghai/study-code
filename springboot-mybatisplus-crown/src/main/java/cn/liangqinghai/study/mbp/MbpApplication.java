@@ -10,10 +10,10 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
  */
 @SpringBootApplication
 @EnableAspectJAutoProxy(proxyTargetClass = true, exposeProxy = true)
-public class MbPApplication {
+public class MbpApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(MbPApplication.class, args);
+        SpringApplication.run(MbpApplication.class, args);
     }
 
 }

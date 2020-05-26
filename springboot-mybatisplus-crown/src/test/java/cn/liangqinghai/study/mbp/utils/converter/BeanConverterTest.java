@@ -19,7 +19,7 @@ public class BeanConverterTest {
     @Test
     public void testBeanToMap() {
 
-        Map<String, Object> map = BeanConverter.beanToMap(TestCaseBean.builder().desc("Hello"));
+        Map<String, Object> map = BeanConverter.beanToMap(TestCaseBean.builder().desc("Hello").build());
 
         System.out.println(JSONObject.toJSON(map).toString());
 
