@@ -154,5 +154,6 @@
         <module>springboot-mybatis</module>
         <module>springboot-mybatisplus-crown</module>
         <module>jsqlparser-study</module>
+        <module>springboot-mybatisplus-study</module>
     </modules>
 </project>

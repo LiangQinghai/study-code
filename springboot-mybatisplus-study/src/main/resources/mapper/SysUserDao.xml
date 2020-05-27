@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.liangqinghai.study.mbp.dao.sys.SysUserDao">
+
+    <select id="queryAllPerms" resultType="java.lang.String">
+        SELECT sm.perms
+        FROM `SYS_USER_ROLE` sur
+                 LEFT JOIN
+             `SYS_ROLE_MENU` srm
+             ON sur.`ROLE_ID` = srm.`ROLE_ID`
+                 LEFT JOIN `SYS_MENU` sm
+                           ON srm.`MENU_ID` = sm.`ID`
+        WHERE sur.`USER_ID` = #{userId}
+    </select>
+
+    <select id="queryAllMenuId" resultType="java.lang.Long">
+
+        SELECT sm.ID
+        FROM sys_user_role sur
+                 LEFT JOIN sys_role_menu srm on sur.ROLE_ID = srm.ROLE_ID
+                 LEFT JOIN sys_menu sm ON sm.ID = srm.MENU_ID
+        WHERE sur.USER_ID = #{userId}
+
+    </select>
+
+</mapper>
