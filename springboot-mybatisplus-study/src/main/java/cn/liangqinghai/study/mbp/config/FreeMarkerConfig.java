@@ -27,14 +27,8 @@ public class FreeMarkerConfig {
     @Autowired
     private CustomConfigProp customConfigProp;
 
-    @Resource
+    @Autowired
     private freemarker.template.Configuration configuration;
-
-    @Resource
-    private FreeMarkerViewResolver resolver;
-
-    @Resource
-    private InternalResourceViewResolver viewResolver;
 
     @PostConstruct
     public void setShareVariable() throws TemplateModelException {
