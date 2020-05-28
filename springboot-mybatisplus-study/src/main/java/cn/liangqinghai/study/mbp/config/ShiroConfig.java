@@ -125,7 +125,6 @@ public class ShiroConfig {
         chainMap.put("/static/**", "anon");
         chainMap.put("/admin/captcha.jpg", "anon");
         chainMap.put("/admin/sys/login", "anon");
-//        chainMap.put("/admin/sys/logout", "anon");
         chainMap.put("/admin/**", "authc");
 
         factoryBean.setLoginUrl("/admin/login.html");
