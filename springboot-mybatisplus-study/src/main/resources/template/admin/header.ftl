@@ -8,9 +8,9 @@
 	<!--不要被百度转码-->
 	<meta http-equiv="Cache-Control" content="no-siteapp"/>
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-	<meta name="author" content="${author}" />
-	<meta name="keywords" content="${keywords}">
-	<meta name="description" content="${description}">
+<#--	<meta name="author" content="${author}" />-->
+<#--	<meta name="keywords" content="${keywords}">-->
+<#--	<meta name="description" content="${description}">-->
  	<link rel="stylesheet" href="${rc.contextPath}/static/common/bootstrap/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="${rc.contextPath}/static/common/font-awesome/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="${rc.contextPath}/static/css/admin/animate.css"/>

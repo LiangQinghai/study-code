@@ -49,10 +49,12 @@ spring:
     content-type: text/html
     expose-request-attributes: true
     expose-session-attributes: true
+    allow-session-override: true
     request-context-attribute: rc
     suffix: .ftl
     settings:
       number_format: 0.##
+    enabled: true
 
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource

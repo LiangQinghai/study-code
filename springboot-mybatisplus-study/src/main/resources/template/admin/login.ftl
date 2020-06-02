@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>XX管理系统</title>
+    <title>WTF</title>
     [#include "/admin/header.ftl"]
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
@@ -20,11 +20,11 @@
 <script zIndex="-1" src="${rc.contextPath}/static/js/admin/canvas-nest.min.js"></script>
 <div class="login-box">
     <div class="login-logo">
-        <b>XX管理系统</b>
+        <b>WTF</b>
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
-        <p class="login-box-msg">管理员登录</p>
+        <p class="login-box-msg">Login</p>
 
         <div style="display:none;" class="alert alert-danger alert-dismissible">
             <h4 style="margin-bottom: 0px;" class="errText"><i class="fa fa-exclamation-triangle"></i></h4>
