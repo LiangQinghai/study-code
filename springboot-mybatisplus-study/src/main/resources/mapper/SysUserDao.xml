@@ -14,6 +14,10 @@
         WHERE sur.`USER_ID` = #{userId}
     </select>
 
+    <select id="queryByUserName" resultType="cn.liangqinghai.study.mbp.model.sys.SysUser">
+        select * from sys_user where USER_NAME=#{username}
+    </select>
+
 <!--    <select id="queryAllMenuId" resultType="java.lang.Long">-->
 
 <!--        SELECT sm.ID-->

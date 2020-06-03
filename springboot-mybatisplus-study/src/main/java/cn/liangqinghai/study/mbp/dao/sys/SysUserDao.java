@@ -27,4 +27,6 @@ public interface SysUserDao extends BaseDao<SysUser> {
             "</script>")
     List<Long> queryAllMenuId(@Param("userId") Long userId);
 
+    SysUser queryByUserName(String username);
+
 }

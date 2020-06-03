@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.liangqinghai.study.mbp.dao.sys.SysMenuDao">
+
+    <select id="queryListParentId" resultType="cn.liangqinghai.study.mbp.model.sys.SysMenu">
+        select *
+        from sys_menu where PARENT_ID=#{parentId} order by ORDER_NUM ASC
+    </select>
+
+</mapper>
