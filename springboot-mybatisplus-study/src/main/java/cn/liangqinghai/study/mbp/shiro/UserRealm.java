@@ -10,13 +10,13 @@ import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authz.AuthorizationInfo;
+import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author LiangQinghai
@@ -58,11 +58,21 @@ public class UserRealm extends AuthorizingRealm {
 
         } else {
 
-            permsList = null;
+            permsList = sysUserService.queryAllPerms(id);
 
         }
 
-        return null;
+        Set<String> permSet = new HashSet<>();
+        for (String s : permsList) {
+            if (!StringUtils.isEmpty(s)) {
+                permSet.addAll(Arrays.asList(s.split(",")));
+            }
+        }
+
+        SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
+        simpleAuthorizationInfo.setStringPermissions(permSet);
+
+        return simpleAuthorizationInfo;
     }
 
     @Override

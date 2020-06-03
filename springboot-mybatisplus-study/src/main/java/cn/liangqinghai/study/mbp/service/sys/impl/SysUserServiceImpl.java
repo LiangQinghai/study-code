@@ -6,6 +6,8 @@ import cn.liangqinghai.study.mbp.service.sys.SysUserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @author LiangQinghai
  * @Title SysUserServiceImpl
@@ -18,5 +20,10 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
     @Override
     public SysUser queryByUserName(String username) {
         return baseMapper.queryByUserName(username);
+    }
+
+    @Override
+    public List<String> queryAllPerms(Long userId) {
+        return baseMapper.queryAllPerms(userId);
     }
 }
