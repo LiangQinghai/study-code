@@ -44,7 +44,7 @@ DROP TABLE IF EXISTS `sys_user`;
 CREATE TABLE `sys_user`  (
   `ID` bigint(20) NOT NULL AUTO_INCREMENT,
   `USER_NAME` varchar(30) NOT NULL,
-  `PASSWORD` varchar(50) NOT NULL,
+  `PASSWORD` varchar(200) NOT NULL,
   `SEX` int(4) NULL DEFAULT NULL,
   `EMAIL` varchar(60) DEFAULT NULL,
   `LAST_LOGIN_TIME` bigint(20) NULL DEFAULT NULL,

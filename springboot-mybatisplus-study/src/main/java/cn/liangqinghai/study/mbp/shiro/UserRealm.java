@@ -6,9 +6,7 @@ import cn.liangqinghai.study.mbp.service.sys.SysMenuService;
 import cn.liangqinghai.study.mbp.service.sys.SysUserService;
 import cn.liangqinghai.study.mbp.utils.Constant;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authc.AuthenticationInfo;
-import org.apache.shiro.authc.AuthenticationToken;
+import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
@@ -76,7 +74,21 @@ public class UserRealm extends AuthorizingRealm {
     }
 
     @Override
-    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
-        return null;
+    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
+
+        String username = (String) token.getPrincipal();
+        String password = new String((char[]) token.getCredentials());
+
+        SysUser sysUser = sysUserService.queryByUserName(username);
+
+        if (sysUser == null) {
+            throw new UnknownAccountException("用户不存在");
+        }
+
+        if (!sysUser.getPassword().equals(password)) {
+            throw new IncorrectCredentialsException("密码不正确");
+        }
+
+        return new SimpleAuthenticationInfo(sysUser, password, getName());
     }
 }
