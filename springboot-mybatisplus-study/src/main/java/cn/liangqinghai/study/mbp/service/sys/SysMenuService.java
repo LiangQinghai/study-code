@@ -17,4 +17,8 @@ public interface SysMenuService extends IService<SysMenu> {
 
     List<SysMenu> queryList(Map<String, Object> map);
 
+    List<SysMenu> getUserMenuList(Long userId);
+
+    List<SysMenu> queryListParentId(Long parentId, List<Long> menuList);
+
 }

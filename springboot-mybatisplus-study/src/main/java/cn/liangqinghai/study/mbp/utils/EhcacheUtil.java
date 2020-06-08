@@ -18,6 +18,8 @@ public class EhcacheUtil {
 
     public final static String ADMIN_EHCACHE = "cache";
 
+    public final static String MENU_EHCACHE = "menu_";
+
     @Autowired
     public CacheManager manager;
 

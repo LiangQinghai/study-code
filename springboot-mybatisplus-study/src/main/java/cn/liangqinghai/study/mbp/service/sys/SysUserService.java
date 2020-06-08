@@ -24,4 +24,6 @@ public interface SysUserService extends IService<SysUser> {
 
     List<String> queryAllPerms(Long userId);
 
+    List<Long> queryAllMenuId(Long userId);
+
 }

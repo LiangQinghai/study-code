@@ -26,4 +26,9 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
     public List<String> queryAllPerms(Long userId) {
         return baseMapper.queryAllPerms(userId);
     }
+
+    @Override
+    public List<Long> queryAllMenuId(Long userId) {
+        return baseMapper.queryAllMenuId(userId);
+    }
 }

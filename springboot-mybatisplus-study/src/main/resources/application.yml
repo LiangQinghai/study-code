@@ -42,7 +42,7 @@ spring:
         max-wait: 20
   freemarker:
     template-loader-path: classpath:/template/
-    allow-request-override: false
+    allow-request-override: true
     cache: false
     charset: UTF-8
     check-template-location: true
@@ -55,6 +55,7 @@ spring:
     settings:
       number_format: 0.##
     enabled: true
+    expose-spring-macro-helpers: false
 
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource

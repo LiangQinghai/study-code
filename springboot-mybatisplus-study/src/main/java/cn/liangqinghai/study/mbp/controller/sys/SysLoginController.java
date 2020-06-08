@@ -1,6 +1,7 @@
 package cn.liangqinghai.study.mbp.controller.sys;
 
 import cn.liangqinghai.study.mbp.model.sys.SysUser;
+import cn.liangqinghai.study.mbp.service.sys.SysMenuService;
 import cn.liangqinghai.study.mbp.service.sys.SysUserService;
 import cn.liangqinghai.study.mbp.utils.HttpUtil;
 import cn.liangqinghai.study.mbp.utils.Result;
@@ -12,11 +13,13 @@ import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 
 /**
  * @author LiangQinghai
@@ -32,6 +35,9 @@ public class SysLoginController extends AbstractController{
     @Autowired
     private SysUserService sysUserService;
 
+    @Autowired
+    private SysMenuService sysMenuService;
+
     @RequestMapping("/")
     public String redirect() {
         if (ShiroUtils.isLogin()) {
@@ -39,6 +45,17 @@ public class SysLoginController extends AbstractController{
         } else {
             return "/admin/login";
         }
+    }
+
+    @RequestMapping("/index.html")
+    public String index(Model model) {
+
+        model.addAttribute("admin", getAdmin());
+
+        model.addAttribute("menuList", sysMenuService.getUserMenuList(getAdminId()));
+
+        return "/admin/index";
+
     }
 
     @PostMapping("/sys/login")
