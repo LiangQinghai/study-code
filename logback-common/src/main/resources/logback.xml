@@ -41,7 +41,7 @@ configuration根节点：
             encoder: 日志格式化
         -->
         <encoder>
-            <pattern>%d{yyyy-MM-dd'T'HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+            <pattern>%d{yyyy-MM-dd'T'HH:mm:ss.SSS} [%thread] %-5level %logger{50} [%line] - %msg%n</pattern>
         </encoder>
 <!--        <layout class="ch.qos.logback.classic.PatternLayout">-->
 <!--            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>-->
@@ -102,6 +102,13 @@ configuration根节点：
 
     </appender>
 
+    <appender name="CUSTOM_APPENDER" class="cn.liangqinghai.study.log.appender.KafkaAppender">
+
+        <appName>HelloWorld</appName>
+        <kafkaHosts>hd-node-3-41.wakedata.com:6667,hd-node-3-42.wakedata.com:6667,hd-node-3-43.wakedata.com:6667</kafkaHosts>
+
+    </appender>
+
     <!--
         logger: 配置日志输出，可以指定包/具体类的日志级别
             name：包名/全路径类名
@@ -116,7 +123,7 @@ configuration根节点：
     -->
     <root level="INFO">
         <appender-ref ref="STDOUT" />
-        <appender-ref ref="KAFKA_LOG"/>
+        <appender-ref ref="CUSTOM_APPENDER"/>
     </root>
 
 

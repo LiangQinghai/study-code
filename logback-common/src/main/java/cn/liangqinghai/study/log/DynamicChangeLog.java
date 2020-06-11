@@ -39,12 +39,12 @@ public class DynamicChangeLog {
 
         List<ch.qos.logback.classic.Logger> loggerList = context.getLoggerList();
 
-        loggerList.forEach(log -> logger.info("{} : \n {}", log.getName(), JSONUtil.toJsonPrettyStr(log)));
-
-        loggerList.forEach(log -> {
-            log.setLevel(Level.toLevel("DEBUG"));
-            log.debug("{} changed to {}.", log.getName(), log.getEffectiveLevel().levelStr);
-        });
+//        loggerList.forEach(log -> logger.info("{} : \n {}", log.getName(), JSONUtil.toJsonPrettyStr(log)));
+//
+//        loggerList.forEach(log -> {
+//            log.setLevel(Level.toLevel("DEBUG"));
+//            log.debug("{} changed to {}.", log.getName(), log.getEffectiveLevel().levelStr);
+//        });
 
         logger.debug("end...");
 

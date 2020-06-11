@@ -28,6 +28,8 @@ public class OneSql {
 
             System.out.println(Arrays.toString(tableList.toArray()));
 
+            System.out.println(select.toString());
+
         }
 
     }

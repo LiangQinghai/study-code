@@ -35,9 +35,11 @@ public class OneSqlTest {
 
             System.out.println(Arrays.toString(tableList.toArray()));
 
-            AddAliasesVisitor addAliasesVisitor = new AddAliasesVisitor();
+//            AddAliasesVisitor addAliasesVisitor = new AddAliasesVisitor();
+//
+//            select.getSelectBody().accept(addAliasesVisitor);
 
-            select.getSelectBody().accept(addAliasesVisitor);
+            System.out.println(select.toString());
 
         }
 

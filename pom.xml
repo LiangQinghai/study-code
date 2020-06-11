@@ -155,5 +155,6 @@
         <module>springboot-mybatisplus-crown</module>
         <module>jsqlparser-study</module>
         <module>springboot-mybatisplus-study</module>
+        <module>springboot-jpa-querydsl</module>
     </modules>
 </project>
