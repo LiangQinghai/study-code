@@ -1,6 +1,5 @@
 package cn.liangqinghai.study.mbp.config.props;
 
-import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.NestedConfigurationProperty;
 
@@ -12,10 +11,16 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
  * @date 2020/5/27 10:44
  */
 @ConfigurationProperties(prefix = "custom")
-@Data
 public class CustomConfigProp {
 
     @NestedConfigurationProperty
     private FreeMakerProp freeMaker;
 
+    public FreeMakerProp getFreeMaker() {
+        return freeMaker;
+    }
+
+    public void setFreeMaker(FreeMakerProp freeMaker) {
+        this.freeMaker = freeMaker;
+    }
 }

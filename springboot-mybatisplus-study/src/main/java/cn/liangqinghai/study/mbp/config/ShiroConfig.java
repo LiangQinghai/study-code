@@ -1,7 +1,6 @@
 package cn.liangqinghai.study.mbp.config;
 
 import cn.liangqinghai.study.mbp.shiro.UserRealm;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.cache.ehcache.EhCacheManager;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
@@ -23,7 +22,6 @@ import java.util.LinkedHashMap;
  * @date 2020/5/27 14:24
  */
 @Configuration
-@Slf4j
 public class ShiroConfig {
 
     /**

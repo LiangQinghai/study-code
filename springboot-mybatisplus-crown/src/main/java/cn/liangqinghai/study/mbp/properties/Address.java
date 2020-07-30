@@ -1,7 +1,5 @@
 package cn.liangqinghai.study.mbp.properties;
 
-import lombok.Data;
-
 /**
  * @author LiangQinghai
  * @Title Address
@@ -9,9 +7,16 @@ import lombok.Data;
  * @Description
  * @date 2020/5/20 9:52
  */
-@Data
 public class Address {
 
     private boolean enable = false;
 
+    public boolean isEnable() {
+        return enable;
+    }
+
+    public Address setEnable(boolean enable) {
+        this.enable = enable;
+        return this;
+    }
 }

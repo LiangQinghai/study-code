@@ -3,11 +3,6 @@ package cn.liangqinghai.study.mbp.model.sys;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 
@@ -18,11 +13,6 @@ import java.io.Serializable;
  * @Description
  * @date 2020/5/27 19:18
  */
-@Data
-@Accessors(chain = true)
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
 @TableName("SYS_ROLE_MENU")
 public class SysRoleMenu implements Serializable {
 
@@ -37,4 +27,30 @@ public class SysRoleMenu implements Serializable {
     @TableField
     private Long menuId;
 
+    public Long getId() {
+        return id;
+    }
+
+    public SysRoleMenu setId(Long id) {
+        this.id = id;
+        return this;
+    }
+
+    public Long getRoleId() {
+        return roleId;
+    }
+
+    public SysRoleMenu setRoleId(Long roleId) {
+        this.roleId = roleId;
+        return this;
+    }
+
+    public Long getMenuId() {
+        return menuId;
+    }
+
+    public SysRoleMenu setMenuId(Long menuId) {
+        this.menuId = menuId;
+        return this;
+    }
 }

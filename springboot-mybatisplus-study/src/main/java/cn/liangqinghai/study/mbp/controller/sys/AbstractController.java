@@ -6,7 +6,6 @@ import cn.liangqinghai.study.mbp.utils.EhcacheUtil;
 import cn.liangqinghai.study.mbp.utils.ShiroUtils;
 import com.alibaba.fastjson.JSONObject;
 import com.hazelcast.internal.json.JsonArray;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.HashMap;
@@ -19,7 +18,6 @@ import java.util.Map;
  * @Description
  * @date 2020/6/1 16:07
  */
-@Slf4j
 public abstract class AbstractController {
 
     @Autowired

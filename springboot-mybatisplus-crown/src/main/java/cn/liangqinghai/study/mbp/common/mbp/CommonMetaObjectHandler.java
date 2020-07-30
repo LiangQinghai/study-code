@@ -2,8 +2,9 @@ package cn.liangqinghai.study.mbp.common.mbp;
 
 import cn.liangqinghai.study.mbp.utils.shiro.ShiroUtil;
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.reflection.MetaObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Date;
 
@@ -14,8 +15,9 @@ import java.util.Date;
  * @Description
  * @date 2020/5/26 19:56
  */
-@Slf4j
 public class CommonMetaObjectHandler implements MetaObjectHandler {
+
+    private static final Logger log = LoggerFactory.getLogger(CommonMetaObjectHandler.class);
 
     private static final String CREATE_TIME = "CREATE_TIME";
 

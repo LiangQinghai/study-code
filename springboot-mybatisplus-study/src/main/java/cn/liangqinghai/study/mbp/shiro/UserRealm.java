@@ -5,7 +5,6 @@ import cn.liangqinghai.study.mbp.model.sys.SysUser;
 import cn.liangqinghai.study.mbp.service.sys.SysMenuService;
 import cn.liangqinghai.study.mbp.service.sys.SysUserService;
 import cn.liangqinghai.study.mbp.utils.Constant;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
@@ -23,7 +22,6 @@ import java.util.*;
  * @Description
  * @date 2020/5/27 14:32
  */
-@Slf4j
 public class UserRealm extends AuthorizingRealm {
 
     @Autowired

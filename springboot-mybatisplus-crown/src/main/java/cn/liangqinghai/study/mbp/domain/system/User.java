@@ -1,6 +1,5 @@
 package cn.liangqinghai.study.mbp.domain.system;
 
-import lombok.Data;
 
 /**
  * @author LiangQinghai
@@ -9,6 +8,5 @@ import lombok.Data;
  * @Description
  * @date 2020/5/26 20:21
  */
-@Data
 public class User {
 }
