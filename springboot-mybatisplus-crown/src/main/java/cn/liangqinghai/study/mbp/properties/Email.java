@@ -1,6 +1,5 @@
 package cn.liangqinghai.study.mbp.properties;
 
-import lombok.Data;
 
 /**
  * @author LiangQinghai
@@ -9,11 +8,27 @@ import lombok.Data;
  * @Description
  * @date 2020/5/20 9:56
  */
-@Data
 public class Email {
 
     private boolean enable = false;
 
     private String send;
 
+    public boolean isEnable() {
+        return enable;
+    }
+
+    public Email setEnable(boolean enable) {
+        this.enable = enable;
+        return this;
+    }
+
+    public String getSend() {
+        return send;
+    }
+
+    public Email setSend(String send) {
+        this.send = send;
+        return this;
+    }
 }

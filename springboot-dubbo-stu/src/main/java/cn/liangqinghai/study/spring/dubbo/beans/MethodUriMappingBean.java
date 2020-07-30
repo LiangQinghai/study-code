@@ -53,4 +53,14 @@ public class MethodUriMappingBean implements Serializable {
     public void setUris(Set<String> uris) {
         this.uris = uris;
     }
+
+    @Override
+    public String toString() {
+        return "MethodUriMappingBean{" +
+                "categoryCode='" + categoryCode + '\'' +
+                ", method='" + method + '\'' +
+                ", className='" + className + '\'' +
+                ", uris=" + uris +
+                '}';
+    }
 }

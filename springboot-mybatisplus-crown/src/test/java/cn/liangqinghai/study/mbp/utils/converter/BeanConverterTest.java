@@ -1,8 +1,6 @@
 package cn.liangqinghai.study.mbp.utils.converter;
 
 import com.alibaba.fastjson.JSONObject;
-import lombok.Builder;
-import lombok.Data;
 import org.junit.Test;
 
 import java.util.Map;
@@ -19,16 +17,23 @@ public class BeanConverterTest {
     @Test
     public void testBeanToMap() {
 
-        Map<String, Object> map = BeanConverter.beanToMap(TestCaseBean.builder().desc("Hello").build());
+        Map<String, Object> map = BeanConverter.beanToMap(new TestCaseBean().setDesc("Hello"));
 
         System.out.println(JSONObject.toJSON(map).toString());
 
     }
 
-    @Data
-    @Builder
     private static class TestCaseBean {
         private String desc;
+
+        public String getDesc() {
+            return desc;
+        }
+
+        public TestCaseBean setDesc(String desc) {
+            this.desc = desc;
+            return this;
+        }
     }
 
 }

@@ -1,13 +1,13 @@
 server:
-  port: 8989
+  port: 8990
 
 spring:
   application:
-    name: dubbo-server
+    name: dubbo-client
 
 dubbo:
   application:
-    name: dubbo-server
+    name: dubbo-client
   registry:
     address: zookeeper://127.0.0.1:2181
   protocol:

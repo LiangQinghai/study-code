@@ -9,7 +9,6 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.http.*;
-import lombok.AllArgsConstructor;
 
 import java.util.List;
 import java.util.Map;
@@ -59,11 +58,36 @@ public class TomcatServer {
     /**
      * httpRequest
      */
-    @AllArgsConstructor
     public static class CustomHttpRequest {
 
         private HttpRequest request;
         private ChannelHandlerContext context;
+
+        public CustomHttpRequest(HttpRequest request, ChannelHandlerContext context) {
+            this.request = request;
+            this.context = context;
+        }
+
+        public CustomHttpRequest() {
+        }
+
+        public HttpRequest getRequest() {
+            return request;
+        }
+
+        public CustomHttpRequest setRequest(HttpRequest request) {
+            this.request = request;
+            return this;
+        }
+
+        public ChannelHandlerContext getContext() {
+            return context;
+        }
+
+        public CustomHttpRequest setContext(ChannelHandlerContext context) {
+            this.context = context;
+            return this;
+        }
 
         public String getUri() {
             return request.uri();
@@ -83,12 +107,37 @@ public class TomcatServer {
     /**
      * 自定义HttpResponse
      */
-    @AllArgsConstructor
     public static class CustomHttpResponse {
 
         private HttpRequest request;
 
         private ChannelHandlerContext context;
+
+        public CustomHttpResponse(HttpRequest request, ChannelHandlerContext context) {
+            this.request = request;
+            this.context = context;
+        }
+
+        public CustomHttpResponse() {
+        }
+
+        public HttpRequest getRequest() {
+            return request;
+        }
+
+        public CustomHttpResponse setRequest(HttpRequest request) {
+            this.request = request;
+            return this;
+        }
+
+        public ChannelHandlerContext getContext() {
+            return context;
+        }
+
+        public CustomHttpResponse setContext(ChannelHandlerContext context) {
+            this.context = context;
+            return this;
+        }
 
         /**
          * 写数据

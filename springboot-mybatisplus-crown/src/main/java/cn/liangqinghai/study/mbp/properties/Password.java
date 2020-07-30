@@ -1,6 +1,5 @@
 package cn.liangqinghai.study.mbp.properties;
 
-import lombok.Data;
 
 /**
  * @author LiangQinghai
@@ -9,9 +8,16 @@ import lombok.Data;
  * @Description
  * @date 2020/5/20 9:52
  */
-@Data
 public class Password {
 
     private int maxRetryCount = 10;
 
+    public int getMaxRetryCount() {
+        return maxRetryCount;
+    }
+
+    public Password setMaxRetryCount(int maxRetryCount) {
+        this.maxRetryCount = maxRetryCount;
+        return this;
+    }
 }

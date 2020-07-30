@@ -1,8 +1,5 @@
 package cn.liangqinghai.study.concurrent;
 
-import lombok.Data;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
@@ -48,10 +45,27 @@ public class AtomicOperation {
 
     }
 
-    @Data
     static class Counter {
 
         private int counterWithoutAtomic;
+
+        public int getCounterWithoutAtomic() {
+            return counterWithoutAtomic;
+        }
+
+        public Counter setCounterWithoutAtomic(int counterWithoutAtomic) {
+            this.counterWithoutAtomic = counterWithoutAtomic;
+            return this;
+        }
+
+        public AtomicInteger getCounterWithAtomic() {
+            return counterWithAtomic;
+        }
+
+        public Counter setCounterWithAtomic(AtomicInteger counterWithAtomic) {
+            this.counterWithAtomic = counterWithAtomic;
+            return this;
+        }
 
         private AtomicInteger counterWithAtomic;
 

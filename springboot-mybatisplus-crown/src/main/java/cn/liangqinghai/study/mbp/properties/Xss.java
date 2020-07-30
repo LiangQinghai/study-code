@@ -1,7 +1,5 @@
 package cn.liangqinghai.study.mbp.properties;
 
-import lombok.Data;
-
 import java.util.List;
 
 /**
@@ -11,7 +9,6 @@ import java.util.List;
  * @Description
  * @date 2020/5/20 9:54
  */
-@Data
 public class Xss {
 
     private boolean enable = true;
@@ -20,4 +17,30 @@ public class Xss {
 
     private List<String> excludeUrls;
 
+    public boolean isEnable() {
+        return enable;
+    }
+
+    public Xss setEnable(boolean enable) {
+        this.enable = enable;
+        return this;
+    }
+
+    public List<String> getExcludeField() {
+        return excludeField;
+    }
+
+    public Xss setExcludeField(List<String> excludeField) {
+        this.excludeField = excludeField;
+        return this;
+    }
+
+    public List<String> getExcludeUrls() {
+        return excludeUrls;
+    }
+
+    public Xss setExcludeUrls(List<String> excludeUrls) {
+        this.excludeUrls = excludeUrls;
+        return this;
+    }
 }

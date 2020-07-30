@@ -27,9 +27,7 @@ public class BeanConverter {
 
         MAPPER = new ModelMapper();
 
-        DateModuleConfig moduleConfig = DateModuleConfig.builder()
-                .zoneId(ZoneOffset.UTC)
-                .build();
+        DateModuleConfig moduleConfig = new DateModuleConfig().setZoneId(ZoneOffset.UTC);
 
         MAPPER.registerModule(new DateModule(moduleConfig))
                 .registerModule(new JsonModule())

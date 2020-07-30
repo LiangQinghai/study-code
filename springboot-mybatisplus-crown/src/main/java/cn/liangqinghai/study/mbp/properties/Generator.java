@@ -1,6 +1,5 @@
 package cn.liangqinghai.study.mbp.properties;
 
-import lombok.Data;
 
 /**
  * @author LiangQinghai
@@ -9,11 +8,27 @@ import lombok.Data;
  * @Description
  * @date 2020/5/20 9:53
  */
-@Data
 public class Generator {
 
     private String author;
 
     private String packagePath;
 
+    public String getAuthor() {
+        return author;
+    }
+
+    public Generator setAuthor(String author) {
+        this.author = author;
+        return this;
+    }
+
+    public String getPackagePath() {
+        return packagePath;
+    }
+
+    public Generator setPackagePath(String packagePath) {
+        this.packagePath = packagePath;
+        return this;
+    }
 }

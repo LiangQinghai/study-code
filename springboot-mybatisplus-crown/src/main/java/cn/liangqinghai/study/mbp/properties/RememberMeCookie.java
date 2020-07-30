@@ -1,6 +1,5 @@
 package cn.liangqinghai.study.mbp.properties;
 
-import lombok.Data;
 
 /**
  * @author LiangQinghai
@@ -9,7 +8,6 @@ import lombok.Data;
  * @Description
  * @date 2020/5/20 17:58
  */
-@Data
 public class RememberMeCookie {
 
     private String domain;
@@ -20,4 +18,39 @@ public class RememberMeCookie {
 
     private int maxAge;
 
+    public String getDomain() {
+        return domain;
+    }
+
+    public RememberMeCookie setDomain(String domain) {
+        this.domain = domain;
+        return this;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public RememberMeCookie setPath(String path) {
+        this.path = path;
+        return this;
+    }
+
+    public boolean isHttpOnly() {
+        return httpOnly;
+    }
+
+    public RememberMeCookie setHttpOnly(boolean httpOnly) {
+        this.httpOnly = httpOnly;
+        return this;
+    }
+
+    public int getMaxAge() {
+        return maxAge;
+    }
+
+    public RememberMeCookie setMaxAge(int maxAge) {
+        this.maxAge = maxAge;
+        return this;
+    }
 }
