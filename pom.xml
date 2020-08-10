@@ -153,6 +153,8 @@
         <module>springboot-dubbo-server</module>
         <module>springboot-dubbo-stu</module>
         <module>springboot-dubbo-client</module>
+        <module>kotlin-study</module>
+        <module>kotlin-study-springboot</module>
     </modules>
 
     <pluginRepositories>
