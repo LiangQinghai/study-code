@@ -155,6 +155,7 @@
         <module>springboot-dubbo-client</module>
         <module>kotlin-study</module>
         <module>kotlin-study-springboot</module>
+        <module>springDataR2dbc</module>
     </modules>
 
     <pluginRepositories>

@@ -1,0 +1,36 @@
+server:
+  port: 9898
+
+spring:
+  data:
+    r2dbc:
+      repositories:
+        enabled: true
+  r2dbc:
+    name: helloWorld
+    username: hello
+    password: hello
+    pool:
+      enabled: true
+      initial-size: 5
+      max-size: 20
+    url: r2dbc:h2:mem://in-memory/helloWorld?options=DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+  jpa:
+    show-sql: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    jmx:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+logging:
+  level:
+    org:
+      springframework:
+        data: debug
+        r2dbc: trace
