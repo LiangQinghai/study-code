@@ -20,14 +20,12 @@ import org.apache.flink.table.catalog.exceptions.TableNotExistException;
 import org.apache.flink.table.catalog.hive.HiveCatalog;
 import org.apache.flink.table.catalog.hive.client.HiveShimLoader;
 import org.apache.flink.table.factories.TableFactory;
-import org.apache.flink.table.sinks.TableSink;
 import org.apache.flink.types.Row;
 import org.apache.hadoop.hive.metastore.api.FieldSchema;
 import org.apache.hadoop.hive.metastore.api.Table;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.*;
 import java.util.stream.Collectors;
 
 /**

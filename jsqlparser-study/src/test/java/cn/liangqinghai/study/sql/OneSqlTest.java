@@ -4,7 +4,6 @@ import net.sf.jsqlparser.JSQLParserException;
 import net.sf.jsqlparser.parser.CCJSqlParserUtil;
 import net.sf.jsqlparser.statement.Statement;
 import net.sf.jsqlparser.statement.select.Select;
-import net.sf.jsqlparser.util.AddAliasesVisitor;
 import net.sf.jsqlparser.util.TablesNamesFinder;
 import org.junit.Test;
 

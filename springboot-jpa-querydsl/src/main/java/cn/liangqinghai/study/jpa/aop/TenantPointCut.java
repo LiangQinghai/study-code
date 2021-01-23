@@ -1,8 +1,6 @@
 package cn.liangqinghai.study.jpa.aop;
 
 import cn.liangqinghai.study.jpa.annos.EnableTenant;
-import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;

@@ -1,0 +1,12 @@
+server:
+  port: 6565
+spring:
+  datasource:
+    url: jdbc:p6spy:mysql://172.31.3.51:3306/DW_PERMISSION_TEST?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false
+    username: mysqluser
+    password: mysqluser
+    driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+
+mybatis-plus:
+  configuration:
+    cache-enabled: false

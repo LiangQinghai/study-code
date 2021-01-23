@@ -10,8 +10,6 @@ import org.apache.curator.framework.imps.CuratorFrameworkState;
 import org.apache.curator.retry.ExponentialBackoffRetry;
 import org.apache.zookeeper.CreateMode;
 
-import java.util.*;
-
 /**
  * @author Mr.Liang
  * @date 2020/3/21
