@@ -1,7 +1,6 @@
 package cn.liangqinghai.study.jpa.model;
 
 import cn.liangqinghai.study.jpa.hibernate.PoListener;
-import lombok.Data;
 import org.hibernate.annotations.Filter;
 import org.hibernate.annotations.FilterDef;
 import org.hibernate.annotations.Filters;

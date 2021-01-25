@@ -1,14 +1,9 @@
 package cn.liangqinghai.study.jpa.config;
 
-import cn.liangqinghai.study.jpa.common.ContextHolder;
-import cn.liangqinghai.study.jpa.model.BasePo;
 import com.querydsl.jpa.impl.JPAQueryFactory;
-import org.hibernate.Filter;
-import org.hibernate.Session;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.annotation.PostConstruct;
 import javax.persistence.EntityManager;
 
 /**

@@ -1,7 +1,6 @@
 package cn.liangqinghai.study.jpa.service;
 
 import cn.hutool.json.JSONUtil;
-import cn.liangqinghai.study.jpa.JpaQueryDslApp;
 import cn.liangqinghai.study.jpa.dto.UserDto;
 import com.querydsl.core.types.ExpressionUtils;
 import com.querydsl.core.types.Ops;
