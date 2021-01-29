@@ -156,6 +156,8 @@
         <module>kotlin-study</module>
         <module>kotlin-study-springboot</module>
         <module>springDataR2dbc</module>
+        <module>webservice-study</module>
+        <module>sqltoy-study</module>
     </modules>
 
     <pluginRepositories>
