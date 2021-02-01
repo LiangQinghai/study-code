@@ -1,6 +1,6 @@
 package cn.liangqinghai.study.webflux.domain;
 
-import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.*;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
@@ -70,30 +70,35 @@ public class UserInfoPo {
      * 创建者
      */
     @Column("create_user")
+    @CreatedBy
     private String createUser;
 
     /**
      * 创建时间
      */
     @Column("create_time")
+    @CreatedDate
     private LocalDateTime createTime;
 
     /**
      * 更新者
      */
     @Column("update_user")
+    @LastModifiedBy
     private String updateUser;
 
     /**
      * 更新时间
      */
     @Column("update_time")
+    @LastModifiedDate
     private LocalDateTime updateTime;
 
     /**
      * 租户id
      */
     @Column("tenant_id")
+    @ReadOnlyProperty
     private Long tenantId;
 
     public Long getId() {

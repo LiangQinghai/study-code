@@ -1,5 +1,6 @@
 package cn.liangqinghai.study.webflux.ctl;
 
+import cn.hutool.core.bean.BeanUtil;
 import cn.liangqinghai.study.webflux.dao.UserDao;
 import cn.liangqinghai.study.webflux.dao.UserInfoDao;
 import cn.liangqinghai.study.webflux.domain.User;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -35,6 +37,30 @@ public class UserController {
     @PostMapping("/save")
     public Mono<User> save(User user) {
         return userService.save(user);
+    }
+
+    @PostMapping("/save-all")
+    public Flux<User> saveAll(User user) {
+
+        List<User> users = new ArrayList<>();
+        for (int i = 0; i < 1000; i++) {
+            User newUser = new User();
+            BeanUtil.copyProperties(user, newUser);
+            users.add(newUser);
+        }
+        return userService.saveAll(users);
+
+    }
+
+    @PostMapping("/save-all-with-dao")
+    public Flux<User> saveAllWithDao(User user) {
+
+        List<User> users = new ArrayList<>();
+        for (int i = 0; i < 1000; i++) {
+            users.add(user);
+        }
+        return userService.saveAllWithDao(users);
+
     }
 
     @PutMapping("/update")

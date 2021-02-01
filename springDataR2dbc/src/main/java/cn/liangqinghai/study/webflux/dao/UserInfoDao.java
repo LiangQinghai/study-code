@@ -1,5 +1,6 @@
 package cn.liangqinghai.study.webflux.dao;
 
+import cn.liangqinghai.study.webflux.dao.base.CrudDao;
 import cn.liangqinghai.study.webflux.domain.UserInfoPo;
 import org.springframework.data.relational.core.query.Query;
 import org.springframework.stereotype.Repository;
@@ -19,7 +20,7 @@ import java.util.List;
  * @since 2021/1/23 13:10
  */
 @Repository
-public class UserInfoDao extends BaseDao<UserInfoPo>{
+public class UserInfoDao extends CrudDao<UserInfoPo> {
 
     public Mono<List<UserInfoPo>> list() {
 

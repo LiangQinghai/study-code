@@ -1,5 +1,6 @@
 package cn.liangqinghai.study.webflux.service;
 
+import cn.liangqinghai.study.webflux.dao.UserDao;
 import cn.liangqinghai.study.webflux.domain.User;
 import cn.liangqinghai.study.webflux.repository.UserRepository;
 import org.springframework.stereotype.Service;
@@ -7,13 +8,18 @@ import org.springframework.util.StringUtils;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.List;
+
 @Service
 public class UserServiceImpl implements IUserService {
 
     private final UserRepository userRepository;
+    private final UserDao userDao;
 
-    public UserServiceImpl(UserRepository userRepository) {
+    public UserServiceImpl(UserRepository userRepository,
+                           UserDao userDao) {
         this.userRepository = userRepository;
+        this.userDao = userDao;
     }
 
     @Override
@@ -36,6 +42,16 @@ public class UserServiceImpl implements IUserService {
                     }
                     return it;
                 });
+    }
+
+    @Override
+    public Flux<User> saveAll(List<User> users) {
+        return userRepository.saveAll(users);
+    }
+
+    @Override
+    public Flux<User> saveAllWithDao(List<User> users) {
+        return userDao.saveAll(users);
     }
 
     @Override
