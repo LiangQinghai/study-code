@@ -1,0 +1,6 @@
+server:
+  port: 8696
+spring:
+  application:
+    name: security-app
+debug: true
