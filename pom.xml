@@ -158,6 +158,7 @@
         <module>springDataR2dbc</module>
         <module>webservice-study</module>
         <module>sqltoy-study</module>
+        <module>dynamic-datasource-multi-tenant</module>
         <module>spring-security-oauth2-study</module>
     </modules>
 
